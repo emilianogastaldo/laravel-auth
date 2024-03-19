@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Guest\HomeController as GuestHomeControler;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', GuestHomeControler::class)->name('guest.home');
 
 Route::get('/admin', AdminHomeController::class)->middleware(['auth', 'verified'])->name('admin.home');
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');
+Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+Route::get('/projects/{post}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+Route::put('/projects/{post}', [ProjectController::class, 'update'])->name('projects.update');
+Route::delete('/projects/{post}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
