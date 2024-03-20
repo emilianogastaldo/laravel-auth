@@ -8,12 +8,12 @@
     </header>
     <div class="clearfix">
         @if ($project->image)
-        <img src="{{$project->image}}" alt="{{$project->post}}" class="me-2 float-start">
+        <img src="{{$project->image}}" alt="{{$project->post}}" class="me-4 float-start">
         @endif
         <p>{{$project->content}}</p>
         <div>
-            <strong>Creato il:</strong>{{$project->created_at}}
-            <strong>Ultima modifica il:</strong>{{$project->updated_at}}
+            <p><strong>Creato il: </strong>{{$project->getFormatedDate('created_at', 'd-m-Y H:i:s')}}</p>
+            <p><strong>Ultima modifica il: </strong>{{$project->getFormatedDate('updated_at', 'd-m-Y H:i:s')}}</p>
         </div>
     </div>
     <footer class="mt-5 d-flex justify-content-between alig-items-center">
