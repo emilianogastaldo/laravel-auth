@@ -3,6 +3,7 @@
 @section('title', 'Nuovo Progetto')
 
 @section('content')
+<h1>Crea un nuovo progetto</h1>
 @include('includes.projects.form')
 @endsection
 
