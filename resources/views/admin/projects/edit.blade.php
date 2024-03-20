@@ -9,4 +9,5 @@
 
 @section('scripts')
 @vite('resources/js/image_preview.js')
+@vite('resources/js/slug_preview.js')
 @endsection
