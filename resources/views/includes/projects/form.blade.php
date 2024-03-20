@@ -18,6 +18,10 @@
                 @enderror
             </div>
         </div>
+        <div class="col-6">
+            <label for="slug">Slug</label>
+            <input type="text" id="slug" class="form-control my-2" value="{{Str::slug(old('title', $project->title))}}" disabled >
+        </div>
         <div class="col-10">
             <div class="form-group">
                 <label for="image">Screenshot progetto</label>

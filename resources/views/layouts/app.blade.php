@@ -29,7 +29,8 @@
     <div id="app">
         @include('includes.layouts.navbar')
         <main class="container py-3">
-            @include('includes.alert')
+            {{-- Alert --}}
+            @include('includes.alerts')
             @yield('content')
         </main>
     </div>
