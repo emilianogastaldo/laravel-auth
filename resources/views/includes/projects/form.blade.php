@@ -29,6 +29,9 @@
                 @enderror
             </div>
         </div>
+        <div class="col-1">
+            <img src="{{old('image', 'https://marcolanci.it/boolean/assets/placeholder.png')}}" alt="immagine placeholder" class="img-fluid" id="preview">
+        </div>
         <div class="col-12">
             <div class="form-group">
                 <label for="content">Descrizione progetto</label>
@@ -43,6 +46,9 @@
     </div>
     <div class="d-flex justify-content-between my-4">
         <a href="{{route('admin.projects.index')}}" class="btn btn-outline-secondary"><i class="far fa-hand-point-left me-2"></i>Torna indietro</a>
-        <button type="submit" class="btn btn-warning"><i class="fas fa-pen me-2"></i>Modifica</button>
+        <div>
+            <button type="reset" class="btn btn-info"><i class="fas fa-eraser me-2"></i>Svuota i campi</button>
+            <button type="submit" class="btn btn-success"><i class="far fa-floppy-disk me-2"></i>Salva</button>
+        </div>
     </div>
 </form>
