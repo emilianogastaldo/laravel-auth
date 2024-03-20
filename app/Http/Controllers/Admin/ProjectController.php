@@ -6,6 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
 {
@@ -23,7 +24,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $project = new Project();
+        return view('admin.projects.create', compact('project'));
     }
 
     /**
@@ -33,9 +35,18 @@ class ProjectController extends Controller
     {
         $request->validate(
             [
-                'title' => 'required|string',
-                'image' => 'nullable|string',
+                'title' => 'required|string|min:5|max:50|unique:projects',
+                'image' => 'nullable|url',
                 'content' => 'required|string',
+            ],
+            [
+                'title.required' => 'Il titolo è obbligatorio',
+                'title.min' => 'Il titolo deve avere almeno :min caratteri',
+                'title.max' => 'Il titolo deve essere massimo di :max caratteri',
+                'title.unique' => 'Non ci possono essere due titoli uguali',
+                'image.url' => 'L\'indirizzo non è valido',
+                'content.required' => 'La descrizione è obbligatoria'
+
             ]
         );
         $data = $request->all();
@@ -47,7 +58,7 @@ class ProjectController extends Controller
         $new_project['slug'] = Str::slug($new_project->title);
         $new_project->save();
 
-        return to_route('admin.projects.index');
+        return to_route('admin.projects.show', $new_project)->with('message', 'Pogretto creato con successo')->with('type', 'success');
     }
 
     /**
@@ -71,7 +82,29 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $request->validate(
+            [
+                'title' => ['required', 'string', 'min:5', 'max:50', Rule::unique('projects')->ignore($project->id)],
+                'image' => 'nullable|url',
+                'content' => 'required|string',
+            ],
+            [
+                'title.required' => 'Il titolo è obbligatorio',
+                'title.min' => 'Il titolo deve avere almeno :min caratteri',
+                'title.max' => 'Il titolo deve essere massimo di :max caratteri',
+                'title.unique' => 'Non ci possono essere due titoli uguali',
+                'image.url' => 'L\'indirizzo non è valido',
+                'content.required' => 'La descrizione è obbligatoria'
+
+            ]
+        );
+        $data = $request->all();
+
+        $project->fill($data);
+        $project['slug'] = Str::slug($project->title);
+        $project->save();
+
+        return to_route('admin.projects.show', $project)->with('message', 'Pogretto modificato con successo')->with('type', 'success');
     }
 
     /**
