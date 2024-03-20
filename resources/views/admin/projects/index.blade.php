@@ -14,7 +14,11 @@
             <th scope="col">Slug</th>
             <th scope="col">Creato il</th>
             <th scope="col">Ultima modifica</th>
-            <th scope="col"></th>
+            <th scope="col">
+              <div class="text-center">
+                <a href="{{route('admin.projects.create')}}" class="btn btn-success"><i class="fas fa-plus-square me-2"></i>Nuovo</a>
+              </div>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -26,7 +30,7 @@
               <td>{{$project->created_at}}</td>
               <td>{{$project->updated_at}}</td>
               <td>
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2 justify-content-center">
                     <a href="{{route('admin.projects.show', $project)}}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                     <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-outline-warning"><i class="fas fa-pen"></i></a>
                     <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form">
