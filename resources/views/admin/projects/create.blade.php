@@ -15,7 +15,9 @@
     input.addEventListener('input', () =>{
         preview.src = input.value || placeholder;
     })
-    // MAGIA NERA:
+    // MAGIA NERA
+    // cancello le due costanti input  e preview e scrivo direttamente:
+    // 
     // image.addEventListener('input', () =>{
     //     preview.src = input.value || placeholder;
     // })
