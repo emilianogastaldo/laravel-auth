@@ -9,19 +9,19 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="title">Titolo Progetto</label>
-                <input id="title" class="form-control my-2" type="text" name="title" >
+                <input id="title" class="form-control my-2" type="text" name="title" value="{{old('title', '')}}" >
             </div>
         </div>
         <div class="col-10">
             <div class="form-group">
                 <label for="image">Screenshot progetto</label>
-                <input id="image" class="form-control my-2" type="text" name="image" >
+                <input id="image" class="form-control my-2" type="text" name="image" value="{{old('image', '')}}" >
             </div>
         </div>
         <div class="col-12">
             <div class="form-group">
                 <label for="content">Descrizione progetto</label>
-                <textarea name="content" id="content" class="form-control my-2" rows="10"></textarea>
+                <textarea name="content" id="content" class="form-control my-2" rows="10">{{old('content', '')}}</textarea>
             </div>
         </div>
     </div>

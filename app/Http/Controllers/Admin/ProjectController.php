@@ -31,7 +31,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(
+            [
+                'title' => 'required|string',
+                'image' => 'nullable|string',
+                'content' => 'required|string',
+            ]
+        );
         $data = $request->all();
+
 
         $new_project = new Project();
 
@@ -55,7 +63,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
