@@ -15,6 +15,10 @@
     input.addEventListener('input', () =>{
         preview.src = input.value || placeholder;
     })
+    // MAGIA NERA:
+    // image.addEventListener('input', () =>{
+    //     preview.src = input.value || placeholder;
+    // })
 </script>
 
 @endsection
