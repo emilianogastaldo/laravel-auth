@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Guest\HomeController as GuestHomeControler;
-use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +20,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', GuestHomeControler::class)->name('guest.home');
 
+Route::get('/projects/{project}', [GuestProjectController::class, 'show'])->name('guest.projects.show');
 
 Route::prefix('/admin')->name('admin.')->middleware('auth')->group(function () {
     // Rotta home admin
     Route::get('', AdminHomeController::class)->middleware('auth')->name('home');
 
     // Rotta projects admin
-    Route::resource('projects', ProjectController::class);
+    Route::resource('projects', AdminProjectController::class);
+
     // Che è come fare queste 7 righe:
     // Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
     // Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
