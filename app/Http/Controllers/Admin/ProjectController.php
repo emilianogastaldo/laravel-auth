@@ -107,9 +107,17 @@ class ProjectController extends Controller
             ]
         );
         $data = $request->all();
+        $project['slug'] = Str::slug($project->title);
+
+        if ($project->image) {
+            Storage::delete($project->image);
+
+            $extension = $data['image']->extension();
+            $img_url = Storage::putFileAs('post_image', $data['image'], "$project->slug.$extension");
+            $project->image = $img_url;
+        }
 
         $project->fill($data);
-        $project['slug'] = Str::slug($project->title);
         $project->save();
 
         return to_route('admin.projects.show', $project)->with('message', 'Pogretto modificato con successo')->with('type', 'success');
