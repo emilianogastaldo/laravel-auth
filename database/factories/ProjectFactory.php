@@ -18,6 +18,7 @@ class ProjectFactory extends Factory
      */
     public function definition(): array
     {
+        Storage::makeDirectory('project_images');
         $title = fake()->text(20);
         $slug = Str::slug($title);
         $image = fake()->image(null, 300, 300);
