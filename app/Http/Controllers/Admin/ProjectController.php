@@ -58,7 +58,7 @@ class ProjectController extends Controller
 
         if (Arr::exists($data, 'image')) {
             $extension = $data['image']->extension();
-            $img_url = Storage::putFileAs('post_image', $data['image'], "{$new_project['slug']}.$extension");
+            $img_url = Storage::putFileAs('project_image', $data['image'], "{$new_project['slug']}.$extension");
             $new_project['image'] = $img_url;
         }
 
@@ -113,7 +113,7 @@ class ProjectController extends Controller
             Storage::delete($project->image);
 
             $extension = $data['image']->extension();
-            $img_url = Storage::putFileAs('post_image', $data['image'], "$project->slug.$extension");
+            $img_url = Storage::putFileAs('project_image', $data['image'], "$project->slug.$extension");
             $project->image = $img_url;
         }
 
@@ -129,6 +129,7 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        return to_route('admin.projects.index')->with('type', 'danger')->with('message', 'Post eliminato con successo');
+        Storage::delete($project->image);
+        return to_route('admin.projects.index')->with('type', 'danger')->with('message', 'Progetto eliminato con successo');
     }
 }
