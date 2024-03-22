@@ -1,3 +1,4 @@
+19/03/2024
 Ciao ragazzi!
 Esercizio di oggi: Laravel Boolfolio - Base
 nome repo: laravel-auth
@@ -29,3 +30,26 @@ Gestiamo la classe active anche quando siamo sul dettaglio dei progetti e comunq
 Nascondiamo il link ai progetti per chi non è loggato
 Mettete tanta cura perchè questo potrà poi essere il vostro portfolio personale :sorriso:
 Buon lavoro!
+
+20/03/2024
+Ciao ragazzi!
+Esercizio di oggi: Laravel Boolfolio - Base
+nome repo: laravel-auth  (stessa di ieri)
+Descrizione:
+completiamo le CRUD mancanti per il vostro sito portfolio!
+BONUS
+tutte le cosette varie che abbiamo visto in classe!
+SUPER BONUS
+implementare la modale di bootstrap per la cancellazione
+Buon lavoro!
+
+23/03/2024
+Ciao ragazzi!
+Esercizio di oggi: Laravel Boolfolio - Upload Immagini
+nome repo: laravel-auth  (sempre la stessa)
+Descrizione:
+Aggiungiamo la possibilità di inserire un immagine per i progetti. L'immagine deve essere inserita come file, come abbiamo visto in classe.
+Se non avevate già previsto un campo per l'immagine nella tabella dei projects potete aggiungerlo con una migration :sorriso:
+BONUS
+tutte le cosette varie che abbiamo visto in classe!
+Buon lavoro e buon weekend!! :faccia_leggermente_sorridente:
