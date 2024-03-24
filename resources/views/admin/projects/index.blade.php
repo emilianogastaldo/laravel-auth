@@ -33,7 +33,7 @@
                 <div class="d-flex gap-2 justify-content-center">
                     <a href="{{route('admin.projects.show', $project)}}" class="btn btn-outline-primary"><i class="fas fa-eye"></i></a>
                     <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-outline-warning"><i class="fas fa-pen"></i></a>
-                    <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form">
+                    <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form" data-bs-toggle="modal" data-bs-target="#modal">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-outline-danger"><i class="fas fa-trash-can"></i></button>
@@ -50,9 +50,11 @@
          
         </tbody>
       </table>
+
+      {{-- Paginazione --}}
       @if ($projects->hasPages())
           {{$projects->links()}}
-      @endif
+      @endif  
 @endsection
 
 @section('scripts')

@@ -34,7 +34,12 @@
             @yield('content')
         </main>
     </div>
+
+    {{-- Modale --}}
+    @include('includes.modal')
+
+    {{-- Scripts --}}
+    @yield('scripts')
 </body>
 
-@yield('scripts')
 </html>

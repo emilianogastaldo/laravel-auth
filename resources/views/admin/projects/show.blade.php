@@ -20,7 +20,7 @@
         <a href="{{route('admin.projects.index')}}" class="btn btn-outline-secondary"><i class="far fa-hand-point-left me-2"></i>Torna indietro</a>
         <div class="d-flex justify-content-between alig-items-center gap-2">
             <a href="{{route('admin.projects.edit', $project)}}" class="btn btn-outline-warning"><i class="fas fa-pen me-2"></i>Modifica</a>
-            <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form">
+            <form action="{{route('admin.projects.destroy', $project)}}" method="POST" class="delete-form" data-bs-toggle="modal" data-bs-target="#modal">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-outline-danger"><i class="fas fa-trash-can me-2"></i>Elimina</button>
