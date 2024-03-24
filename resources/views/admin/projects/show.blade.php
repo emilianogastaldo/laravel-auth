@@ -8,7 +8,7 @@
     </header>
     <div class="clearfix">
         @if ($project->image)
-        <img src="{{asset('/storage/' . $project->image)}}" alt="{{$project->post}}" class="me-4 float-start img-fluid">
+        <img src="{{$project->printImage()}}" alt="{{$project->post}}" class="me-4 float-start img-fluid">
         @endif
         <p>{{$project->content}}</p>
         <div>
