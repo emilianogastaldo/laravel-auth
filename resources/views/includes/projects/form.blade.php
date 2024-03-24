@@ -37,7 +37,7 @@
         </div>
         <div class="col-1">
             {{-- Preview image --}}
-            <img src="{{old('image', 'https://marcolanci.it/boolean/assets/placeholder.png')}}" alt="immagine placeholder" class="img-fluid" id="preview">
+            <img src="{{old('image', $project->image) ? $project->printImage() : 'https://marcolanci.it/boolean/assets/placeholder.png'}}" alt="{{ $project->image ? $project->title : 'preview'}}" class="img-fluid" id="preview">
         </div>
         <div class="col-12">
             {{-- Input content --}}
