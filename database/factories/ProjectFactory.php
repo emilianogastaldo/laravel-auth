@@ -26,8 +26,9 @@ class ProjectFactory extends Factory
         return [
             'title' => $title,
             'slug' => $slug,
-            'content' => fake()->paragraph(15, true),
+            'content' => fake()->paragraphs(15, true),
             'image' => $img_url,
+            'is_published' => fake()->boolean(),
         ];
     }
 }

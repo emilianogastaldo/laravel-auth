@@ -12,6 +12,7 @@
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Slug</th>
+            <th scope="col">Stato</th>
             <th scope="col">Creato il</th>
             <th scope="col">Ultima modifica</th>
             <th scope="col">
@@ -27,6 +28,7 @@
               <th scope="row">{{$project->id}}</th>
               <td>{{$project->title}}</td>
               <td>{{$project->slug}}</td>
+              <td>{{$project->is_published ? 'Pubblicato' : 'Non pubblicato'}}</td>
               <td>{{$project->getFormatedDate('created_at')}}</td>
               <td>{{$project->getFormatedDate('updated_at', 'd-m-Y H:i:s')}}</td>
               <td>
