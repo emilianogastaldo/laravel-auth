@@ -3,8 +3,20 @@
 @section('title', 'Projects')
 
 @section('content')
-    <header class="mt-5">
+    <header class="mt-5 d-flex aligh-items-center justify-content-between">
         <h1>Projects</h1>
+
+        {{-- Filtro --}}
+        <form action="{{route('admin.projects.index')}}" method="GET">
+          <div class="input-group">
+            <select class="form-select" name="filter">
+              <option value="">Tutti</option>
+              <option value="pubblico" @if ($filter === 'pubblico') selected @endif>Pubblici</option>
+              <option value="bozza" @if ($filter === 'bozza') selected @endif>Non pubblici</option>
+            </select>
+            <button class="btn btn-outline-secondary">Button</button>
+          </div>
+        </form>
     </header>
     <table class="table">
         <thead>
