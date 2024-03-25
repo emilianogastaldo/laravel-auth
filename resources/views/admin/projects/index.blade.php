@@ -18,6 +18,7 @@
           </div>
         </form>
     </header>
+    <hr>
     <table class="table">
         <thead>
           <tr>
